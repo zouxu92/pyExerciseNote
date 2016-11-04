@@ -1,9 +1,10 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import xdrlib, sys
 import xlrd
 
-def open_execl(file= 'file.xls'):
+def open_excel(file= 'file.xls'):
 	try:
 		data = xlrd.open_workbook(file)
 		return data
@@ -13,8 +14,10 @@ def open_execl(file= 'file.xls'):
 # 根据索引获取Excel表格中的数据   参数:file：Excel文件路径     
 # colnameindex：表头列名所在行的所以  ，by_index：表的索引
 def excel_table_byindex(file= 'file.xls', colnameindex= 0 , by_index=0):
-	data = open_execl(file)
+	data = open_excel(file)
+	# 这里用data.sheets()[by_index] 出错
 	table = data.sheets()[by_index]
+
 	nrows = table.nrows # 行数
 	ncols = table.ncols # 列数
 	colnames = table.row_values(colnameindex) # 某一行数据
@@ -49,7 +52,7 @@ def excel_table_byname(file= 'file.xls',colnameindex=0,by_name=u'Sheet1'):
 
 
 def main():
-	table = excel_table_byindex()
+	tables = excel_table_byindex()
 	for row in tables:
 		print row_values
 
