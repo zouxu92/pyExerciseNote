@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book_store name="newhua" website="http://www.126.com">
+	<book1>
+		<name>hamlet</name>
+		<author>William ShaKespeare</author>
+	</book1>
+</book_store>
